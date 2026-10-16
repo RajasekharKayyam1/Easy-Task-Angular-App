@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal,Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Headercomponent } from './header/header.component';
 import { User } from './user/user';
@@ -14,7 +14,8 @@ import { Tasks } from './tasks/tasks';
 export class App {
   protected readonly title = signal('first-angular-app');
   users=DUMMY_USERS;
-  selecteduserid='u1';
+
+  selecteduserid ?:string;
  get selecteduser(){
   return this.users.find((user)=>user.id===this.selecteduserid)!;
  }
